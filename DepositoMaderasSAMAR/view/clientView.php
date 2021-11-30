@@ -1,40 +1,14 @@
 <?php
-include_once 'public/headerAdmin.php';
+include_once 'public/heatherClient.php';
 ?>
 
 <div class="card rounded-0">
     <div class="card-header">
-        <h3 class="mb-0 text-center">Clientes Disponibles</h3>
+        <h3 class="mb-0 text-center">Bienvenido/a </h3>
     </div>
     <div class="card-body">
-
-        <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-            <thead>
-                <tr class="text-center">
-                    <th>Nombre</th>
-                    <th>Teléfono</th>
-                    <th>Domicilio</th>
-                    <th>Email</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($vars['clientsList'] as $client) {
-                    ?>
-                    <tr>
-                        <td class="text-center"><?php echo $client[1] ?> <?php echo $client[2] ?></td>
-                        <td class="text-center"><?php echo $client[3] ?></td>
-                        <td class="text-center"><?php echo $client[4] ?></td>
-                        <td class="text-center"><?php echo $client[5] ?></td>
-                        <td class="text-center"><?php echo $client[6] ?></td>
-                        <td class="text-center"><?php echo $client[7] ?></td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-
+        <p class="lead">SAMAR tu tienda virtual preferida, donde podés encontrar la madera más fina de nuetra zona, los mejores productoss y la mejor calidad.
+        </p>
     </div>
     <!--/card-block-->
 </div>
@@ -49,6 +23,11 @@ include_once 'public/headerAdmin.php';
 </div>
 </div>
 <!-- /.row -->
+
+<hr>
+<br/>
+<br/>
+<br/>
 
 <?php
 include_once 'public/footer.php';
