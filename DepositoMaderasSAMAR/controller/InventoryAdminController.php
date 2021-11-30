@@ -8,8 +8,16 @@ class InventoryAdminController {
     }//Constructor
     
     //Método encargado de mostrar la view para registrar inventario
-    public function showAddInventoryView(){        
-        $this->view->show("inventoryAddView.php", null);  
+    public function showAddInventoryView(){ 
+        //Using del modelo
+        require 'model/SuplierAdminModel.php';
+        //Instancia del controlador
+        $suplier = new SuplierAdminModel();   
+        
+        //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
+        $data['supliersList'] = $suplier->getSupliersList();
+        
+        $this->view->show("inventoryAddView.php", $data);  
     }//showshowAddInventoryView
     
     //Método encargado de mostrar la view para actualizar o modificar inventario
@@ -74,18 +82,23 @@ class InventoryAdminController {
         
         //Using del modelo
         require 'model/InventoryAdminModel.php';
+        
         //Instancia del controlador
-        $products = new InventoryAdminModel();   
+        $products = new InventoryAdminModel(); 
         
         //Se capturan las variables
         $measure = $_POST["measure"];
         $price = $_POST["price"];
         $details = $_POST["descrip"];
         $stock = $_POST["stock"];
+        $suplier = $_POST["suplier"];
         
-        $products->addProduct($measure,$price,$details,$stock);
+        $products->addProduct($measure,$price,$details,$stock,$suplier);
         
-        $this->view->show("inventoryAddView.php", null);  
+        $data['supliersList'] = $products->getSupliersList();
+        
+        
+        $this->view->show("inventoryAddView.php", $data);  
     }//addProduct
     
     public function updateProduct(){   

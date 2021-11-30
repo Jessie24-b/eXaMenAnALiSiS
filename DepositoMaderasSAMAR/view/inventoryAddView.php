@@ -8,6 +8,16 @@ include_once 'public/headerAdmin.php';
     </div>
     <div class="card-body">
         <form class="form" role="form" autocomplete="off" id="formLogin" action="?controlador=InventoryAdmin&accion=addProduct" enctype="multipart/form-data" method="POST">
+            <label >Elija el proveedor del producto:</label>          
+            <div class="form-group">
+                <select class="form-control" name="suplier" id="suplier">
+                    <?php
+                    foreach ($vars['supliersList'] as $suplier) {
+                        ?>
+                        <option value="<?php echo $suplier[0] ?>"><?php echo $suplier[1] ?> <?php echo $suplier[2] ?></option>
+                    <?php } ?>
+                </select> 
+            </div>   
             <div class="form-group">
                 <input type="text" class="form-control" name="measure" id="measure" placeholder="Medida" required="required">
             </div>

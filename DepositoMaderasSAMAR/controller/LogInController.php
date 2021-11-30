@@ -1,10 +1,5 @@
 <?php
 
-include_once("model/ClientModel.php");
-include_once("conexion.php");
-
-
-
 class LogInController {
 
     //Constructor
@@ -36,10 +31,6 @@ class LogInController {
     }//showSupliersAdminView
     
     public function showClientsAdminView(){
-
-        $clients=ClientModel::getListClient();     
-        $data['clients']  = $clients;
-        var_dump($clients);
         $this->view->show("clientsAdminView.php",$data); 
     }//showClientsAdminView
     
