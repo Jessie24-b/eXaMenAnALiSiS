@@ -21,6 +21,17 @@
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 <script src="public/js/bootstrap.bundle.min.js"></script>
 <script>
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
+        });
+
+        table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+    });
+</script>
+<script>
     $("#btnLogin").click(function (event) {
 
         //Fetch form to apply custom Bootstrap validation

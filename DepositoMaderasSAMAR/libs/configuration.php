@@ -6,8 +6,8 @@ $config->set('controllerFolder', 'controller/'); //Nombre del folder , nombre de
 $config->set('modelFolder', 'model/');
 $config->set('viewFolder', 'view/');
 
-$config->set('dbhost','localhost');
-$config->set('dbname','db_aplicada_proyecto1');
-$config->set('dbuser','postgres');
-$config->set('dbpass','1234');
+$config->set('dbhost','portalinfofc.com');
+$config->set('dbname','UCRgrupo2');
+$config->set('dbuser','grupodos');
+$config->set('dbpass','j4slfAI0mC');
 ?>

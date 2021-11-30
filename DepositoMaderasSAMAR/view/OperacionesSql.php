@@ -1,9 +1,9 @@
 <?php 
 class Operaciones{
-    private $server = 'localhost';
-    private $user = 'root';
-    private $pass = 'root';
-    private $db = 'samar';
+    private $server = 'portalinfofc.com';
+    private $user = 'grupodos';
+    private $pass = 'j4slfAI0mC';
+    private $db = 'UCRgrupo2';
 
     public function conectar(){
         $con = mysqli_connect($this->server,$this->user,$this->pass,$this->db) or die ('Error al conectar');
