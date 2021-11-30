@@ -24,8 +24,8 @@ class InventoryAdminModel {
     } //Fin deleteProduct
     
     //Función para agregar producto de la base de datos
-    public function addProduct($measure,$price,$details,$stock){
-        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Product`(`measure`,`price`,`details`,`stock`) VALUES ("'.$measure.'", "'.$price.'", "'.$details.'","'.$stock.'");');
+    public function addProduct($measure,$price,$details,$stock, $suplier){
+        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Product`(`measure`,`price`,`details`,`stock`,`idSuplier`) VALUES ("'.$measure.'", "'.$price.'", "'.$details.'","'.$stock.'","'.$suplier.'");');
         $consulta->execute();
         $consulta->CloseCursor();
     } //Fin addProduct
@@ -45,6 +45,15 @@ class InventoryAdminModel {
         $consulta->CloseCursor();
         return $resultado;
     } //Fin getProductsList
+    
+    //Función para listar los proveedores disponibles en la base de datos
+    public function getSupliersList( ){
+        $consulta = $this->db->prepare('SELECT * FROM g4_Suplier;');
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        $consulta->CloseCursor();
+        return $resultado;
+    } //Fin getSupliersList
                
 }//Fin Clase InventoryAdminModel
 
