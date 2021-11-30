@@ -8,7 +8,7 @@ class clientController {
     }//Constructor
     
     public function showClientView(){        
-        $this->view->show("ClientView.php", null);  
+        $this->view->show("ClientViewC.php", null);  
     }//showClientView
       
 }//ClientController
