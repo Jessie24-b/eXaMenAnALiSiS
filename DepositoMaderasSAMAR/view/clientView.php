@@ -7,7 +7,7 @@ include_once 'public/heatherClient.php';
         <h3 class="mb-0 text-center">Bienvenido/a </h3>
     </div>
     <div class="card-body">
-        <p class="lead">SAMAR tu tienda virtual preferida, donde podés encontrar la madera más fina de nuetra zona, los mejores productoss y la mejor calidad.
+        <p class="lead">SAMAR tu tienda virtual preferida, donde podés encontrar la madera más fina de nuestra zona, los mejores productoss y la mejor calidad.
         </p>
     </div>
     <!--/card-block-->
