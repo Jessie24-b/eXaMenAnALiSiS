@@ -74,7 +74,6 @@ if (!isset($_SESSION)) {
                         <a href="?controlador=LogIn&accion=showSupliersAdminView" class="list-group-item lead">Proovedores</a>
                         <a href="?controlador=LogIn&accion=showClientsAdminView" class="list-group-item lead">Clientes</a>
                         <a href="?controlador=LogIn&accion=showServicesAdminView" class="list-group-item lead">Servicios</a>
-                        <a href="?controlador=LogIn&accion=showProfileAdminView" class="list-group-item lead">Perfil</a>
                     </div>
                 </div>
                 <!-- Content Column -->

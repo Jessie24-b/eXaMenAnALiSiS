@@ -7,35 +7,33 @@ include_once 'public/headerAdmin.php';
         <h3 class="mb-0 text-center">Administración Servicios</h3>
     </div>
     <div class="card-body">
-        <form class="form" role="form" autocomplete="off" id="formLogin" action="#" enctype="multipart/form-data" method="POST">
-            <div class="form-group">
-                <input type="text" class="form-control" name="productName" id="productName" placeholder="Ejemplo" required="required">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="price" id="price" placeholder="Ejemplo" required="required">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="descrip" id="descrip" placeholder="Ejemplo" required="required">
-            </div>   
-            <label >Elija una categoría:</label>          
-            <div class="form-group">
-                <select class="form-control" name="category" id="category">
-                        <option value="#">Ejemplo</option>
-                </select> 
-            </div>   
-            <label >Seleccione la imagen:</label>        
-            <div class="form-group">
-                <input type="file" id="img_product" name="img_product" accept="image/png, image/jpeg">
-            </div> 
-            <div style="text-align: center">
-                <button type="submit" class="btn btn-success btn-lg" id="btnLogin">Ejemplo</button>
-            </div>
-            <p class="text-center" id="alreadyAdded" style="color: red"></p>
-        </form>
+        <div style="text-align: center">
+            <a style="width:210px" class="btn btn-success btn-lg" id="btnAddProduct" href="?controlador=ServiceAdmin&accion=showAddServiceView" >Registrar Servicio</a>
+        </div>
+
+        <br/>
+
+        <div style="text-align: center">            
+            <a style="width:210px; color:white" class="btn btn-warning btn-lg" id="btnUpdateProduct" href="?controlador=ServiceAdmin&accion=showUpdateServiceView" >Modificar Servicio</a>
+        </div>
+
+        <br/>
+
+        <div style="text-align: center">
+            <a style="width:210px; background-color:lightseagreen; border-color:lightseagreen; color:white" class="btn btn-success btn-lg" id="btnSeeProducts" href="?controlador=ServiceAdmin&accion=showServiceView">Ver Servicios</a>
+        </div>
+
+        <br/>
+
+        <div style="text-align: center">
+            <a type="submit" style="width:210px" class="btn btn-danger btn-lg" id="btnDeleteProduct" href="?controlador=ServiceAdmin&accion=showDeleteServiceView">Eliminar Servicios</a>
+        </div>
     </div>
     <!--/card-block-->
 </div>
 
+</br>
+</br>
 <!--/No borrar -->
 </div>
 

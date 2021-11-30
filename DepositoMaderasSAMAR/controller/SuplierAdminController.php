@@ -34,7 +34,7 @@ class SuplierAdminController {
         $suplier = new SuplierAdminModel();   
         
         //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
-        $data['supliersList'] = $suplier->getSupliersList();
+        $data['supliersList'] = $suplier->getSupliersList();       
         
         $this->view->show("suplierView.php", $data);  
     }//showSuplierView
