@@ -9,7 +9,8 @@ Class DefaultController {
     }//Constructor
     
     public function acciondefault(){
-               
+           
+        session_destroy();
         //llamar modelo para traer datos 
         $this->view->show("indexView.php", null);
         

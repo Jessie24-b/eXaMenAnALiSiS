@@ -17,10 +17,13 @@ class LogInModel {
     //Aqui para abajo van todas las funciones de la Base de Datos , ejemplo leer, listar, eliminar , actualizar , etc...
 
     //Función ejemplo para insertar cosas a la base de datos
-    public function nombreFuncion($parametro1, $parametro2){
-        $consulta = $this->db->prepare('call sp_nombreprocedimietnoalmacenado("'.$parametro1.'","'.$parametro2.'")');
+    public function getUser($userName){
+       
+        $consulta = $this->db->prepare('SELECT * FROM `UCRgrupo2`.`g4_Users` WHERE userName = "'.$userName.'";');
         $consulta->execute();
+        $resultado=$consulta->fetchAll();
         $consulta->CloseCursor();
+        return $resultado;
     } //Fin nombreFuncion
     
     //Función para insertar y a la vez devolver un select de la base de datos

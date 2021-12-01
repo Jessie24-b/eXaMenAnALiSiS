@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class LogInController {
 
     //Constructor
@@ -15,7 +17,26 @@ class LogInController {
     }//showLogInView
     
     public function showMainAdminView(){
-        $this->view->show("mainAdminView.php", null);  
+        $userName = $_POST["username"];
+        $password = $_POST["password"];
+        require 'model/LogInModel.php';
+
+        $logIn = new LogInModel(); 
+
+        $user = $logIn->getUser($userName);
+        print_r($user);
+          if(sizeof($user) >= 0){
+            
+            if($user[0]["type"] == "Cliente"){
+                $_SESSION["inSession"] = $user[0]["userName"];
+                $this->view->show("clientView.php", null); 
+            }else {
+                $_SESSION["inSession"] = $user[0]["userName"];
+                 $this->view->show("mainAdminView.php", null); 
+            }
+        }
+
+         
     }//showMainAdminView
     
     public function showInventoryAdminView(){
@@ -31,7 +52,9 @@ class LogInController {
     }//showSupliersAdminView
     
     public function showClientsAdminView(){
-        $this->view->show("clientsAdminView.php",$data); 
+       
+
+        $this->view->show("clientsAdminView.php",null); 
     }//showClientsAdminView
     
     public function showServicesAdminView(){
@@ -43,25 +66,27 @@ class LogInController {
     }//showProfileAdminView
 
  
-    
+    //showCreateNewClientAccountView
     public function showCreateNewClientAccountView(){
         
-        if($_POST){
-            print_r($_POST);
-            $name = $_POST['name'];
-            $lastname = $_POST['lastname'];
-            $telephone = $_POST['telephone'];
-            $address = $_POST['address'];
-            $email = $_POST['email'];
-            $user = $_POST['user'];
-            $password = $_POST['password'];
-            ClientModel::addClient($name,$lastname,$telephone,$address,$email,$user,$password);       
-        }
-    
-
+        require 'model/ClientAdminModel.php';
+        //Instancia del controlador
+        $client = new ClientAdminModel();   
+        
+        //Se capturan las variables
+        $name = $_POST["name"];
+        $lastName = $_POST["lastName"];
+        $telephone = $_POST["telephone"];
+        $address = $_POST["address"];
+        $email = $_POST["email"];
+        $user = $_POST["user"];
+        $password = $_POST["password"];
+        
+        $client->addClient($name,$lastName,$telephone,$address,$email,$user,$password);
+        
         $this->view->show("createNewAccountView.php", null);  
         
-    }//showCreateNewClientAccountView
+    }
     public function updateClient()
     {
         $this->view->show("Actualizar.php", null);  
