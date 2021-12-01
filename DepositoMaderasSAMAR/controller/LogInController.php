@@ -29,7 +29,7 @@ class LogInController {
             
             if($user[0]["type"] == "Cliente"){
                 $_SESSION["inSession"] = $user[0]["userName"];
-                $this->view->show("clientView.php", null); 
+                $this->view->show("clientViewMain.php", null); 
             }else {
                 $_SESSION["inSession"] = $user[0]["userName"];
                  $this->view->show("mainAdminView.php", null); 

@@ -17,12 +17,12 @@ class ProductClientModel {
     
     //Función para listar los productos disponibles en la base de datos
     public function getProductsList( ){
-        print_r("Entra");
+       
         $consulta = $this->db->prepare('SELECT * FROM g4_Product;');
         $consulta->execute();
         $resultado=$consulta->fetchAll();
         $consulta->CloseCursor();
-        print_r($resultado);
+        
         return $resultado;
     } //Fin getProductsList
                

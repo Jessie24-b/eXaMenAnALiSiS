@@ -18,7 +18,7 @@ class ProductClientController {
         require 'model/ProductClientModel.php';
         //Instancia del controlador
         $products = new ProductClientModel();   
-        print_r("Entrada al metodo");
+        
         //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
         $data['productsList'] = $products->getProductsList();
         
