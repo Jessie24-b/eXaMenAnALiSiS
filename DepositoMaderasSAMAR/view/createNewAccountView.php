@@ -4,6 +4,10 @@ include_once 'public/header.php';
 
 <br/>
 <br/>
+</br>
+</br>
+</br>
+</br>
 
 <script type="text/javascript" src="public/js/formClient.js"></script>
 
@@ -15,39 +19,25 @@ include_once 'public/header.php';
                     <!-- Formulario de registro de clientes -->
                     <div class="card rounded-0">
                         <div class="card-header">
-                            <h3 class="mb-0">Registro de Usuarios</h3>
+                            <h3 class="text-center mb-0">Registro de Usuarios</h3>
                         </div>
-                             
+
                         <div class="card-body lead">
-                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" action="" method="POST">
-                                <div class="form-group">
-                                    <input type="text" class="form-control lead" name="name" placeholder="Nombre" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control lead" name="lastname" placeholder="Apellidos" required="required">
-                                </div>
-                                <div class="form-group">
-                                <input type="text" class="form-control lead" name="telephone" placeholder="Teléfono" required="required" maxlength="8"> 
-                                </div> 
-                                <div class="form-group">
-                                <input type="text" class="form-control lead" name="address" placeholder="Dirección" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control lead" name="email" placeholder="Correo" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control lead" name="user" placeholder="Nombre de Usuario" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control lead" name="password" placeholder="Contraseña" required="required">
-                                </div>        
-                                <div class="form-group text-center">
-                                    <label class="checkbox-inline"><input type="checkbox" required=""> Acepto los términos de uso &amp; políticas de privacidad.</label>
-                                </div>
-                                <div style="text-align: center">
-                                    <button type="submit" class="btn btn-success btn-lg" id="btnLogin" >Registrarse</button>
-                                </div>
-                            </form>
+                            <div style="text-align: center">
+                                <a style="width:210px" class="btn btn-success btn-lg" id="btnAddProduct" href="?controlador=Login&accion=showCreateNewEmployeeUserView" >Soy Empleado</a>
+                            </div>
+
+                            <br/>
+
+                            <div style="text-align: center">            
+                                <a style="width:210px;" class="btn btn-success btn-lg" id="btnUpdateProduct" href="?controlador=Login&accion=showCreateNewClientUserView" >Soy Cliente</a>
+                            </div>
+
+                            <br/>
+
+                            <div style="text-align: center">
+                                <a style="width:210px;" class="btn btn-success btn-lg" id="btnSeeProducts" href="?controlador=Login&accion=showCreateNewSuplierUserView">Soy Proveedor</a>
+                            </div>
                         </div>
                         <!--/card-block-->
                     </div>
@@ -62,8 +52,12 @@ include_once 'public/header.php';
 </div>
 <!--/container-->
 
+<br/>
+<br/>
+</br>
+</br>
+</br>
 
 <?php
-
 include_once 'public/footer.php';
 ?>

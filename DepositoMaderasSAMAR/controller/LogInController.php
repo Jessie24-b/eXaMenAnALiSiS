@@ -53,53 +53,48 @@ class LogInController {
     
     public function showClientsAdminView(){
        
-
         $this->view->show("clientsAdminView.php",null); 
     }//showClientsAdminView
     
     public function showServicesAdminView(){
         $this->view->show("servicesAdminView.php", null);  
     }//showServicesAdminView
+     
+    //showshowCreateNewUserView
+    public function showCreateNewUserView(){
+        $this->view->show("createNewAccountView.php", null);  
+    }  
     
-    public function showProfileAdminView(){
-        $this->view->show("profileAdminView.php", null);  
-    }//showProfileAdminView
-
- 
-    //showCreateNewClientAccountView
-    public function showCreateNewClientAccountView(){
+    public function showCreateNewEmployeeUserView(){
+        $this->view->show("createNewEmployeeUserView.php", null);  
+    }  
+    
+    
+    public function showCreateNewClientUserView(){
+        $this->view->show("createNewClientUserView.php", null);  
+    }  
+    
+    public function showCreateNewSuplierUserView(){
+        $this->view->show("createNewSuplierUserView.php", null);  
+    }   
+    
+    //Metodo para crear nuevo usuario del sitio web. OJO: No borrar ni modificar, acá se usa el FACTORY METHOD
+    public function createNewUser(){
         
-        require 'model/ClientAdminModel.php';
-        //Instancia del controlador
-        $client = new ClientAdminModel();   
+        require 'designPatterns/FactoryMethod.php';
+        require 'model/LogInModel.php';
         
-        //Se capturan las variables
-        $name = $_POST["name"];
-        $lastName = $_POST["lastName"];
-        $telephone = $_POST["telephone"];
-        $address = $_POST["address"];
-        $email = $_POST["email"];
-        $user = $_POST["user"];
-        $password = $_POST["password"];
+        $logIn = new LogInModel(); 
         
-        $client->addClient($name,$lastName,$telephone,$address,$email,$user,$password);
+        //Se utiliza el factory Method para crear usuarios
+        $user = UserFactoryMethod::create($_POST["type"],$_POST["name"],$_POST["lastName"],$_POST["fullName"]
+                ,$_POST["telephone"],$_POST["address"],$_POST["age"],$_POST["email"],$_POST["user"],$_POST["password"],
+                $_POST["typeWood"]);
+        
+        $logIn->createUser($user->getType(), $user->name, $user->lastName, $user->fullName, $user->telephone, 
+                $user->address, $user->age, $user->email, $user->user, $user->password, $user->typeWood);
         
         $this->view->show("createNewAccountView.php", null);  
-        
-    }
-    public function updateClient()
-    {
-        $this->view->show("Actualizar.php", null);  
-    }
-    public function modificar()
-    {
-        $this->view->show("Update.php", null);  
-    }
-    public function deleteClient()
-    {
-        
-        $this->view->show("Borrar.php", null);  
-    }
-    
+    } 
        
 }//LogInController

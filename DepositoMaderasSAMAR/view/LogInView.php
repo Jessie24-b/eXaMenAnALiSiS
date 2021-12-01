@@ -37,7 +37,7 @@ include_once 'public/header.php';
                             </form>
                             <br/>
                             <div class="text-center">
-                                <a href="?controlador=LogIn&accion=showCreateNewClientAccountView" class="lead">¿Eres nuevo? Registrate </a>
+                                <a href="?controlador=LogIn&accion=showCreateNewUserView" class="lead">¿Eres nuevo? Registrate </a>
                             </div>
                         </div>
                         <!--/card-block-->

@@ -36,7 +36,7 @@ class ClientAdminController {
         //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
         $data['clientsList'] = $client->getClientsList();       
         
-        $this->view->show("clientView.php", $data);  
+        $this->view->show("clientListView.php", $data);  
     }//showClientView
     
     public function showDeleteClientView(){   

@@ -26,14 +26,26 @@ class LogInModel {
         return $resultado;
     } //Fin nombreFuncion
     
-    //Función para insertar y a la vez devolver un select de la base de datos
-    public function nombreFuncion2($nombre,$precio,$descripcion,$imagen,$categoria){
-        $consulta = $this->db->prepare('call sp_agregar_productos("'.$nombre.'","'.$precio.'","'.$descripcion.'","'.$imagen.'","'.$categoria.'")');
-        $consulta->execute();
-        $resultado=$consulta->fetchAll();
-        $consulta->CloseCursor();
-        return $resultado;
-    } //Fin nombreFuncion2
+    //Función para insertar usuarios a la base de datos
+    public function createUser($type,$name,$lastName,$fullName,$telephone,$address,$age,$email,$user,$password,$typeWood){
+       
+        switch($type) {
+        case 'Employee':
+            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Employee`(`fullName`,`telephone`,`address`,`age`) VALUES ("'.$fullName.'", "'.$telephone.'", "'.$address.'","'.$age.'");');
+            $consulta->execute();
+            $consulta->CloseCursor();
+        case 'Client':
+            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Client` (`name`,`lastName`,`telephone`,`address`,`email`,`user`,`password`)VALUES("'.$name.'","'.$lastName.'","'.$telephone.'","'.$address.'","'.$email.'","'.$user.'","'.$password.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "'.$type.'");');
+            $consulta->execute();
+            $consulta->CloseCursor();
+        case 'Suplier':
+            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Suplier`(`name`,`lastName`,`telephone`,`sellingPermitPicture`,`typeWood`) VALUES ("'.$name.'", "'.$lastName.'", "'.$telephone.'",NULL,"'.$typeWood.'");');
+            $consulta->execute();
+            $consulta->CloseCursor();
+        default:
+            
+        }             
+    } //Fin createUser
                
 }//Fin Clase LogInModel
 
