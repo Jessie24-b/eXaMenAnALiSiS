@@ -48,7 +48,7 @@ if (!isset($_SESSION)) {
                             <a class="nav-link" href="?controlador=Default">Cesta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?controlador=Default">Productos</a>
+                        <a class="nav-link" href="?controlador=client&accion=showProductClientView">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?controlador=Default">Cerrar Sesión</a>

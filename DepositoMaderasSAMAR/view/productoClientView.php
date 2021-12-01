@@ -1,14 +1,36 @@
 <?php
-include_once 'public/heatherProduct.php';
+include_once 'public/headerProductClient.php';
 ?>
 
 <div class="card rounded-0">
     <div class="card-header">
-        <h3 class="mb-0 text-center">Bienvenido/a </h3>
+        <h3 class="mb-0 text-center">Productos Disponibles</h3>
     </div>
     <div class="card-body">
-        <p class="lead">SAMAR tu tienda virtual preferida, donde podés encontrar la madera más fina de nuetra zona, los mejores productoss y la mejor calidad.
-        </p>
+
+        <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+            <thead>
+                <tr class="text-center">
+                    <th>Medida</th>
+                    <th>Precio</th>
+                    <th>Detalles</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($vars['productsList'] as $product) {
+                    ?>
+                    <tr>
+                        <td class="text-center"><?php echo $product[1] ?></td>
+                        <td class="text-center">₡<?php echo $product[2] ?></td>
+                        <td class="text-center"><?php echo $product[3] ?></td>
+                        <td class="text-center"><?php echo $product[4] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
     </div>
     <!--/card-block-->
 </div>
@@ -23,11 +45,6 @@ include_once 'public/heatherProduct.php';
 </div>
 </div>
 <!-- /.row -->
-
-<hr>
-<br/>
-<br/>
-<br/>
 
 <?php
 include_once 'public/footer.php';
