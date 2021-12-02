@@ -22,6 +22,8 @@ class ClientAdminModel {
         $consulta->execute();
         $consulta->CloseCursor();
     } //Fin deleteClient
+
+
     
     //Función para agregar client de la base de datos
     public function addClient($name,$lastName,$telephone,$address,$email,$user,$password){

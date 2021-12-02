@@ -1,6 +1,18 @@
 <?php
 include_once 'public/headerProductClient.php';
+include_once 'view/serviceModalViewClient.php';
+require_once 'public/boostrapJS.php';
 ?>
+
+<?php if (isset($_SESSION["inSession"]['activarModal'] ) && $_SESSION["inSession"]['activarModal']  == 'Si') :
+    ?>
+    <div data-bs-toggle="modal" data-bs-target="#ServiceModal"></div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#ServiceModal").modal("show");
+        });
+    </script>
+<?php endif; ?>
 
 <div class="card rounded-0">
     <div class="card-header">
@@ -15,17 +27,20 @@ include_once 'public/headerProductClient.php';
                     <th>Precio</th>
                     <th>Detalles</th>
                     <th>Stock</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach ($vars['productsList'] as $product) {
+                foreach ($vars['filas'][0]['productsList'] as $product) {
                     ?>
                     <tr>
                         <td class="text-center"><?php echo $product[1] ?></td>
                         <td class="text-center">₡<?php echo $product[2] ?></td>
                         <td class="text-center"><?php echo $product[3] ?></td>
                         <td class="text-center"><?php echo $product[4] ?></td>
+                        <td>
+                        <a href="?controlador=ProductClient&accion=addProductInCart&codigo=<?= $product[0] ?>"  class="btn btn-secondary"> Reservacion</a></td>
                     </tr>
                 <?php } ?>
             </tbody>

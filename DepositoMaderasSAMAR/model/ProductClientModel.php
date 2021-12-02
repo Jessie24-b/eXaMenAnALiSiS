@@ -25,6 +25,14 @@ class ProductClientModel {
         
         return $resultado;
     } //Fin getProductsList
-               
+       
+    public function  insertProductWithItem($idItem,$idClient,$idProduct){
+        print_r($idItem.$idClient);
+        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_ProductWithItem` (`idItem`, `idProductInCart`,`idProduct`)VALUES("'.$idItem.'","'.$idClient.'","'.$idClient.'");');
+        $consulta->execute();                       
+        $consulta->CloseCursor();
+        print_r("inserto");
+    }
+ 
 }//Fin Clase InventoryAdminModel
 
