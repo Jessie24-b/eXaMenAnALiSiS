@@ -10,7 +10,7 @@ class Client{
     public function __construct($userName, $name, $lastName, $notify) {
      $this->userName=$userName;
      $this->name=$name;
-     $this->lasName=$lastName;
+     $this->lastName=$lastName;
      $this->notify=$notify;
 
     }//Fin constructor

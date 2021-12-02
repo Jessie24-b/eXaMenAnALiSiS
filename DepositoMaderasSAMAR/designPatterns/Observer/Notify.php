@@ -7,7 +7,7 @@ class Notify
     public function attach($ob)
     {
         array_push($this->observers, $ob);
-
+       // print_r($this->observers);
     }
 
     public function detach($ob)

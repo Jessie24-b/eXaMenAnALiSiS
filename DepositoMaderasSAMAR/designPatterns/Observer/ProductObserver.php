@@ -21,10 +21,10 @@ class ProductObserver extends Notify{
        $list=$observerModel->getClientsList();
 
         foreach ($list as $client) {
-            $cliente = new Client($client['user'],$client['name'],$client['lastName'],false);
+            $cliente = new Client($client['user'],$client['name'],$client["lastName"],0);
             $this->attach($cliente);
         }
-        print_r($list);
-        //print_r($this->getObservers());
+       
+        
     }
 }
