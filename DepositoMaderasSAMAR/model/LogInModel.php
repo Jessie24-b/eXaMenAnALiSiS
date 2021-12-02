@@ -30,16 +30,16 @@ class LogInModel {
     public function createUser($type,$name,$lastName,$fullName,$telephone,$address,$age,$email,$user,$password,$typeWood){
        
         switch($type) {
-        case 'Employee':
-            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Employee`(`fullName`,`telephone`,`address`,`age`) VALUES ("'.$fullName.'", "'.$telephone.'", "'.$address.'","'.$age.'");');
+        case 'employee':
+            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Employee`(`fullName`,`telephone`,`address`,`age`) VALUES ("'.$fullName.'", "'.$telephone.'", "'.$address.'","'.$age.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Empleado");');
             $consulta->execute();
             $consulta->CloseCursor();
-        case 'Client':
-            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Client` (`name`,`lastName`,`telephone`,`address`,`email`,`user`,`password`)VALUES("'.$name.'","'.$lastName.'","'.$telephone.'","'.$address.'","'.$email.'","'.$user.'","'.$password.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "'.$type.'");');
+        case 'client':
+            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Client` (`name`,`lastName`,`telephone`,`address`,`email`,`user`,`password`)VALUES("'.$name.'","'.$lastName.'","'.$telephone.'","'.$address.'","'.$email.'","'.$user.'","'.$password.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Cliente");');
             $consulta->execute();
             $consulta->CloseCursor();
-        case 'Suplier':
-            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Suplier`(`name`,`lastName`,`telephone`,`sellingPermitPicture`,`typeWood`) VALUES ("'.$name.'", "'.$lastName.'", "'.$telephone.'",NULL,"'.$typeWood.'");');
+        case 'suplier':
+            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Suplier`(`name`,`lastName`,`telephone`,`sellingPermitPicture`,`typeWood`) VALUES ("'.$name.'", "'.$lastName.'", "'.$telephone.'",NULL,"'.$typeWood.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Proveedor");');
             $consulta->execute();
             $consulta->CloseCursor();
         default:

@@ -23,11 +23,11 @@ class UserFactoryMethod
     {
         switch($type) {
             case 'employee':
-                return new Employee($fullName, $telephone, $address, $age);
+                return new Employeee($fullName, $telephone, $address, $age);
             case 'client':
-                return new Client($name, $lastName, $telephone, $address, $email, $user, $password);
+                return new Clientt($name, $lastName, $telephone, $address, $email, $user, $password);
             case 'suplier':
-                return new Suplier($name, $lastName, $telephone, $typeWood);
+                return new Suplierr($name, $lastName, $telephone, $typeWood);
             default:
                 return new Exception("No user found");
         }
@@ -39,7 +39,7 @@ class UserFactoryMethod
     }
 }
 
-class Employee extends UserFactoryMethod
+class Employeee extends UserFactoryMethod
 {
     public function __construct($fullName, $telephone, $address, $age){
         $this->fullName = $fullName;
@@ -49,7 +49,7 @@ class Employee extends UserFactoryMethod
     }
 }
 
-class Client extends UserFactoryMethod
+class Clientt extends UserFactoryMethod
 {
     public function __construct($name, $lastName, $telephone, $address, $email, $user, $password){
         $this->name = $name;
@@ -62,7 +62,7 @@ class Client extends UserFactoryMethod
     }
 }
 
-class Suplier extends UserFactoryMethod
+class Suplierr extends UserFactoryMethod
 {
     public function __construct($name, $lastName, $telephone, $typeWood){
         $this->name = $name;

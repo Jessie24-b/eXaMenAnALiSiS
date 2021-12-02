@@ -64,6 +64,10 @@ include_once 'public/header.php';
                                     <button type="submit" class="btn btn-success btn-lg" id="btnLogin">Registrar</button>
                                 </div>
                             </form>
+                            </br>
+                            <div style="text-align: center">
+                                <a style="width:90px; color:white;" class="btn btn-danger btn-lg" id="btnBack" href="?controlador=LogIn&accion=showCreateNewUserView">Volver</a>
+                            </div>
                         </div>
                         <!--/card-block-->
                     </div>
@@ -78,8 +82,6 @@ include_once 'public/header.php';
 </div>
 <!--/container-->
 
-<br/>
-<br/>
 </br>
 </br>
 </br>

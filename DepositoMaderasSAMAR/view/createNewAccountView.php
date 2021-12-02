@@ -38,6 +38,11 @@ include_once 'public/header.php';
                             <div style="text-align: center">
                                 <a style="width:210px;" class="btn btn-success btn-lg" id="btnSeeProducts" href="?controlador=Login&accion=showCreateNewSuplierUserView">Soy Proveedor</a>
                             </div>
+
+                            </br>
+                            <div style="text-align: center">
+                                <a style="width:90px; color:white;" class="btn btn-danger btn-lg" id="btnBack" href="?controlador=LogIn&accion=showLogInView">Volver</a>
+                            </div>
                         </div>
                         <!--/card-block-->
                     </div>
