@@ -40,7 +40,7 @@
                     <label class="form-check-label" value="1" > Moldedura</label>
                     </div>
                     <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="6" name="Tablilla" id="Tablilla" >
+                    <input class="form-check-input" type="checkbox" value="7" name="Tablilla" id="Tablilla" >
                     <label class="form-check-label" >Tablilla</label>
                     </div>
                     <div class="form-check">

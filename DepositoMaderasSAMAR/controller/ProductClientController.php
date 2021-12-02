@@ -56,11 +56,15 @@ class ProductClientController {
         require 'designPatterns\Decorador\SoldProductsWithItem.php';
         require 'designPatterns\Decorador\Cepillado.php';
         require 'designPatterns\Decorador\Tablilla.php';
+        require 'designPatterns\Decorador\Moldedura.php';
+        
+    
 
         $productWithItem = new SoldProductsWithItem($_POST);
         $cepillado = new cepillado($productWithItem);
-       // $tablilla = new Tablilla($cepillado);
-        print_r($cepillado->insertsProductsWithItem());
+        $tablilla = new Tablilla($cepillado);
+       $Moldedura = new Moldedura($tablilla);
+        print_r($Moldedura->insertsProductsWithItem());
         
     }//fin de insertProduct
 
