@@ -19,19 +19,23 @@ class LogInController {
     public function showMainAdminView(){
         $userName = $_POST["username"];
         $password = $_POST["password"];
+
         require 'model/LogInModel.php';
+       
 
-        $logIn = new LogInModel(); 
-
+        $logIn = new LogInModel();
+        $client = $logIn->getClient($userName);
+        $_SESSION["inSession"] = array();
         $user = $logIn->getUser($userName);
-        print_r($user);
+
           if(sizeof($user) >= 0){
             
             if($user[0]["type"] == "Cliente"){
-                $_SESSION["inSession"] = $user[0]["userName"];
-                $this->view->show("clientView.php", null); 
+                $_SESSION["inSession"]["id"] = $client[0]["id"];
+                $_SESSION["inSession"]["userName"] = $user[0]["userName"];
+                $this->view->show("clientViewMain.php", null); 
             }else {
-                $_SESSION["inSession"] = $user[0]["userName"];
+                $_SESSION["inSession"]["userName"]  = $user[0]["userName"];
                  $this->view->show("mainAdminView.php", null); 
             }
         }

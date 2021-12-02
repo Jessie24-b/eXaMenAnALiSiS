@@ -26,6 +26,15 @@ class LogInModel {
         return $resultado;
     } //Fin nombreFuncion
     
+    // Funcion para obtener un cliente de la base de datos
+    public function getClient($userName){
+        $consulta = $this->db->prepare('SELECT id FROM `UCRgrupo2`.`g4_Client` WHERE user = "'.$userName.'";');
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        $consulta->CloseCursor();
+        return $resultado;
+    } //Fin getClient
+
     //Función para insertar usuarios a la base de datos
     public function createUser($type,$name,$lastName,$fullName,$telephone,$address,$age,$email,$user,$password,$typeWood){
        

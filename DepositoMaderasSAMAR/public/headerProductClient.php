@@ -48,7 +48,7 @@ if (!isset($_SESSION)) {
                             <a class="nav-link" href="?controlador=Default">Cesta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?controlador=Default">Productos</a>
+                            <a class="nav-link" href="?controlador=ProductClient&accion=showClientMAinView">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?controlador=Default">Cerrar Sesión</a>
@@ -68,7 +68,7 @@ if (!isset($_SESSION)) {
 
 
             <!-- Page Heading/Breadcrumbs -->
-            <h1 class="mt-4 mb-3">Módulo Cliente</h1>
+            <h1 class="mt-4 mb-3">Productos</h1>
 
             <hr>
             <br/>

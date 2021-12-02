@@ -41,14 +41,14 @@ if (!isset($_SESSION)) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                    <a class="navbar-brand"><img class="img-fluid" id="logo" src="public/img/cariito.jpg" alt="logo" width="40"/></a>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="?controlador=ShoppingCart&accion=showShoppingCartView"><img class="img-fluid" id="logo" src="public/img/cariito.jpg" alt="logo" width="40"/></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?controlador=Default">Cesta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?controlador=Default">Productos</a>
+                        <a class="nav-link" href="?controlador=ProductClient&accion=showProductView">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?controlador=Default">Cerrar Sesión</a>

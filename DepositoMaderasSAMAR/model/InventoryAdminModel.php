@@ -23,6 +23,16 @@ class InventoryAdminModel {
         $consulta->CloseCursor();
     } //Fin deleteProduct
     
+    public function getProduct($id){
+        $consulta = $this->db->prepare('SELECT * FROM `UCRgrupo2`.`g4_Product` WHERE id = "'.$id.'";');
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        $consulta->CloseCursor();
+        
+        return $resultado;
+    } //Fin deleteProduct
+    
+
     //Función para agregar producto de la base de datos
     public function addProduct($measure,$price,$details,$stock, $suplier){
         $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Product`(`measure`,`price`,`details`,`stock`,`idSuplier`) VALUES ("'.$measure.'", "'.$price.'", "'.$details.'","'.$stock.'","'.$suplier.'");');
