@@ -35,26 +35,30 @@ class LogInModel {
         return $resultado;
     } //Fin getClient
 
-    //Función para insertar usuarios a la base de datos
-    public function createUser($type,$name,$lastName,$fullName,$telephone,$address,$age,$email,$user,$password,$typeWood){
-       
-        switch($type) {
-        case 'employee':
+    //Función para insertar proveedores a la base de datos
+    public function addSuplier($name,$lastName,$telephone,$user,$password,$typeWood){
+            $consulta = $this->db->prepare
+                ('INSERT INTO `UCRgrupo2`.`g4_Suplier`(`name`,`lastName`,`telephone`,`sellingPermitPicture`,`typeWood`) VALUES ("'.$name.'", "'.$lastName.'", "'.$telephone.'",NULL,"'.$typeWood.'"); '
+                    . 'INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Proveedor");');
+            $consulta->execute();
+            $consulta->CloseCursor();         
+    } //Fin createUser
+    
+    //Función para insertar clientes a la base de datos
+    public function addClient($name,$lastName,$telephone,$address,$email,$user,$password){
+        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Client` (`name`,`lastName`,`telephone`,`address`,`email`,`user`,`password`)VALUES("'.$name.'","'.$lastName.'","'.$telephone.'","'.$address.'","'.$email.'","'.$user.'","'.$password.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Cliente");');
+        $consulta->execute();
+        $consulta->CloseCursor();        
+    } //Fin addClient
+    
+    //Función para insertar empleados a la base de datos
+    public function addEmployee($fullName,$telephone,$address,$age,$user,$password){
             $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Employee`(`fullName`,`telephone`,`address`,`age`) VALUES ("'.$fullName.'", "'.$telephone.'", "'.$address.'","'.$age.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Empleado");');
             $consulta->execute();
             $consulta->CloseCursor();
-        case 'client':
-            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Client` (`name`,`lastName`,`telephone`,`address`,`email`,`user`,`password`)VALUES("'.$name.'","'.$lastName.'","'.$telephone.'","'.$address.'","'.$email.'","'.$user.'","'.$password.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Cliente");');
-            $consulta->execute();
-            $consulta->CloseCursor();
-        case 'suplier':
-            $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Suplier`(`name`,`lastName`,`telephone`,`sellingPermitPicture`,`typeWood`) VALUES ("'.$name.'", "'.$lastName.'", "'.$telephone.'",NULL,"'.$typeWood.'"); INSERT INTO `UCRgrupo2`.`g4_Users` (`userName`, `password`, `type`) VALUES ("'.$user.'", "'.$password.'", "Proveedor");');
-            $consulta->execute();
-            $consulta->CloseCursor();
-        default:
-            
-        }             
-    } //Fin createUser
+    } //Fin addEmployee
+    
+    
                
 }//Fin Clase LogInModel
 

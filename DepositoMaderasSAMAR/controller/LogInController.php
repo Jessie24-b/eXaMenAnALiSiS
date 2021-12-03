@@ -107,29 +107,50 @@ class LogInController {
           return $user;
         }//Devuelve un usuario con todo y su contraseña
         
-        //Instancia de la fábrica según el tipo de login
-        if ($_POST["type"] == 'employee'){
-            $userName = createFactory(new InternUsersFactory(), 'Employee', $_POST["fullName"], $_POST["telephone"], 'NULL', $_POST["age"]);
-        } else if ($_POST["type"] == 'suplier'){
-            $userName = createFactory(new InternUsersFactory(), 'Suplier', $_POST["name"].$_POST["lastName"], $_POST["telephone"], 'NULL', $_POST["typeWood"]);         
-        }else {
-            $userName = createFactory(new ExternUsersFactory(), 'Client', $_POST["user"],$_POST["telephone"], $_POST["password"], 'NULL');
-        }
-        
-        //Se crean con el uso de las fabricas de abstract factory el usuario y contraseña
-        $auxUserName = $userName->assignUserName();
-        $auxPassword = $userName->assignPassword( );
-        
         //Se utiliza el factory Method para crear usuarios
         $user = UserFactoryMethod::create($_POST["type"],$_POST["name"],$_POST["lastName"],$_POST["fullName"]
                 ,$_POST["telephone"],$_POST["address"],$_POST["age"],$_POST["email"],$_POST["user"],$_POST["password"],
                 $_POST["typeWood"]);
         
         $logIn = new LogInModel(); 
-        //Se ingresa los datos a la base de datos
-        $logIn->createUser($_POST["type"], $user->name, $user->lastName, $user->fullName, $user->telephone, 
-                $user->address, $user->age, $user->email, $auxUserName, $auxPassword, $user->typeWood);
         
+        //Instancia de la fábrica según el tipo de login
+        if ($_POST["type"] == 'employee'){
+            
+            //Se crea el usuario y contraseña por medio del abstract factory
+            $userName = createFactory(new InternUsersFactory(), 'Employee', $_POST["fullName"], $_POST["telephone"], 'NULL', $_POST["age"]);
+            
+            //Se obtienen la contraseña y nombre de usuario
+            $auxUserName = $userName->assignUserName();
+            $auxPassword = $userName->assignPassword( );
+            
+            //Por último se ingresan los datos en la base de datos mediante el uso del objeto creado con el factory method
+            $logIn->addEmployee($user->fullName, $user->telephone, $user->address, $user->age, $auxUserName, $auxPassword);
+            
+        } else if ($_POST["type"] == 'suplier'){
+            //Se crea el usuario y contraseña por medio del abstract factory
+            $userName = createFactory(new InternUsersFactory(), 'Suplier', $_POST["name"].$_POST["lastName"], $_POST["telephone"], 'NULL', $_POST["typeWood"]);     
+            
+            //Se obtienen la contraseña y nombre de usuario
+            $auxUserName = $userName->assignUserName();
+            $auxPassword = $userName->assignPassword( );
+            
+            //Por último se ingresan los datos en la base de datos mediante el uso del objeto creado con el factory method
+            $logIn->addSuplier($user->name, $user->lastName, $user->telephone, $auxUserName, $auxPassword, $user->typeWood);
+            
+        }else {
+            //Se crea el usuario y contraseña por medio del abstract factory
+            $userName = createFactory(new ExternUsersFactory(), 'Client', $_POST["user"],$_POST["telephone"], $_POST["password"], 'NULL');
+            
+            //Se obtienen la contraseña y nombre de usuario
+            $auxUserName = $userName->assignUserName();
+            $auxPassword = $userName->assignPassword( );
+            
+            //Por último se ingresan los datos en la base de datos mediante el uso del objeto creado con el factory method
+            $logIn->addClient($user->name, $user->lastName, $user->telephone, $user->address, $user->email, $auxUserName, $auxPassword);
+        }
+        
+        //Se envía el nombre de usuario y la contraseña para ser mostradas al usuario en el view
         $data['userName'] = $auxUserName;
         $data['password'] = $auxPassword;
         
