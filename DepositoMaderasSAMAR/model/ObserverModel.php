@@ -31,7 +31,7 @@ class ObserverModel {
     } //Fin getClientList
 
      //Función para listar los clientes disponibles en la base de datos
-     public function getClientsList( ){
+     public function getClientsListObserver( ){
         $consulta = $this->db->prepare('SELECT * FROM g4_Client;');
         $consulta->execute();
         $resultado=$consulta->fetchAll();

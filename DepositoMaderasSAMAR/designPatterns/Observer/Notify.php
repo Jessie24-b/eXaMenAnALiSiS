@@ -14,10 +14,10 @@ class Notify
     {
            
     }
-    public function notify()
+    public function notify($product)
     {
         foreach ($this->observers as $ob) {
-            $ob->update($ob);
+            $ob->update($ob,$product);
         }
     }
     public function getObservers(){
