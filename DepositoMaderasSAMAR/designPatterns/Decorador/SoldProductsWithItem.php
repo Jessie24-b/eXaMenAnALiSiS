@@ -1,16 +1,17 @@
 <?php
 
 require_once("iProducto.php");
-
+require 'model/ShoppingCartModel.php';
 class SoldProductsWithItem implements iProducto{
 
     public $data = [];
+    public $productClient=null;
     public function __construct($data)
     {
         $this->data = $data;
         $this->_sql = "";
-
-       
+        $this->productClient = new ShoppingCartModel();
+     
     }
 
     
@@ -21,6 +22,11 @@ class SoldProductsWithItem implements iProducto{
        
     }
 
+    public function getModel(){
+
+        return $this->productClient;
+       
+    }
 }
 
 ?>

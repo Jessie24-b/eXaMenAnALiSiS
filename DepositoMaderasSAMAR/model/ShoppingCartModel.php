@@ -39,5 +39,12 @@ class ShoppingCartModel {
         $consulta->CloseCursor();
         return $resultado;
     } //Fin getClientList
-               
+      
+    public function  insertProductWithItem($idItem,$idClient,$idProduct){
+        print_r($idItem.$idClient);
+        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_ProductWithItem` (`idItem`, `idProductInCart`,`idProduct`)VALUES("'.$idItem.'","'.$idClient.'","'.$idProduct.'");');
+        $consulta->execute();                       
+        $consulta->CloseCursor();
+        print_r("inserto");
+    }
 }//

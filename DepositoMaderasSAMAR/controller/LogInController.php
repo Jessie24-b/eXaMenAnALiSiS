@@ -44,7 +44,11 @@ class LogInController {
     }//showMainAdminView
     
     public function showInventoryAdminView(){
-        $this->view->show("inventoryAdminView.php", null);  
+        require 'designPatterns\Observer\ProductObserver.php';
+        $productObserver = new ProductObserver();
+        $productObserver->suscription();
+        //print_r($productObserver->getObservers());
+        $this->view->show("inventoryAdminView.php", null); 
     }//showInventoryAdminView
     
     public function showEmployeeAdminView(){
@@ -62,6 +66,10 @@ class LogInController {
     
     public function showServicesAdminView(){
         $this->view->show("servicesAdminView.php", null);  
+    }//showServicesAdminView
+
+    public function showObserverAdminView(){
+        $this->view->show("NotificationsView.php", null);  
     }//showServicesAdminView
      
     //showshowCreateNewUserView

@@ -12,8 +12,11 @@ abstract class ProductDecorator implements iProducto
     protected $_filter = null;
     public function __construct(iProducto $filter)
     {
+        
         $this->data = $filter->data;
         $this->_filter = $filter;
+       
     }
 
+    
 }
