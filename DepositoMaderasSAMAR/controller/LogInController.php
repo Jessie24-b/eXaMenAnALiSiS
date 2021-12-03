@@ -44,10 +44,6 @@ class LogInController {
     }//showMainAdminView
     
     public function showInventoryAdminView(){
-        require 'designPatterns\Observer\ProductObserver.php';
-        $productObserver = new ProductObserver();
-        $productObserver->suscription();
-        //print_r($productObserver->getObservers());
         $this->view->show("inventoryAdminView.php", null); 
     }//showInventoryAdminView
     

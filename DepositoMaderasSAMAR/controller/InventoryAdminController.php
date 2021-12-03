@@ -82,9 +82,14 @@ class InventoryAdminController {
         
         //Using del modelo
         require 'model/InventoryAdminModel.php';
+        require 'designPatterns\Observer\ProductObserver.php';
         
         //Instancia del controlador
         $products = new InventoryAdminModel(); 
+        $productsObserver = new ProductObserver();
+        $productsObserver->suscription();
+        //$productsObserver->notify();
+        //print_r($productObserver->getObservers());
         
         //Se capturan las variables
         $measure = $_POST["measure"];

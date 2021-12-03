@@ -14,10 +14,10 @@ class Notify
     {
            
     }
-    public function notify($obj)
+    public function notify()
     {
         foreach ($this->observers as $ob) {
-            $ob->update($obj);
+            $ob->update($ob);
         }
     }
     public function getObservers(){

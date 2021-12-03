@@ -2,5 +2,5 @@
 
 interface IObserver
 {
-    public function update($cliente);
+    public function update(Client $cliente);
 }

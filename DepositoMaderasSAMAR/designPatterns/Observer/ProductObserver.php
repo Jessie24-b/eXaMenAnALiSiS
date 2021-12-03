@@ -9,13 +9,6 @@ class ProductObserver extends Notify{
     public function __construct() {
     }//Fin constructor
 
-   public function sale()
-    {
-        for ($i = 1; $i <= 10; $i++) {
-         
-        }
-    }
-
     public function suscription(){
        $observerModel=new ObserverModel();
        $list=$observerModel->getClientsList();

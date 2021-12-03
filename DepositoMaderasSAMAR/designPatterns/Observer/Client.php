@@ -1,6 +1,7 @@
 <?php
 
-class Client{
+require 'designPatterns\Observer\IObserver.php';
+class Client implements IObserver{
  
      public $userName;
      public $name;
@@ -15,6 +16,9 @@ class Client{
 
     }//Fin constructor
 
+    public function update(Client $cliente){
+        print_r("Lo que quiera");
+    }
 }
 
 ?>
