@@ -9,9 +9,11 @@ class SoldProductsWithItem implements iProducto{
     public function __construct($data)
     {
         $this->data = $data;
-        $this->_sql = "";
+        $this->_sql = " ";
         $this->productClient = new ShoppingCartModel();
      
+        $this->productClient->insertProducSold($data['idClient'],$data['idProduct'],$data['details'],$data['quantity']
+        ,0,$data['quantity']*$data["price"]);
     }
 
     

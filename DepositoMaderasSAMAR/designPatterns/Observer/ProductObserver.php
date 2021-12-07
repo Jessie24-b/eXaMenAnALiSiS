@@ -14,12 +14,12 @@ class ProductObserver extends Notify{
         require 'designPatterns\Observer\Client.php';
            
        $list=$products->getClientsListObserver();
-       print_r("paso instancia");
+       print_r($list);
         foreach ($list as $client) {
             $cliente = new Client($client['user'],$client['name'],$client["lastName"],0);
             $this->attach($cliente);
         }
       
-        
+        print_r($this->getObservers());
     }
 }

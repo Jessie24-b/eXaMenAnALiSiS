@@ -41,10 +41,39 @@ class ShoppingCartModel {
     } //Fin getClientList
       
     public function  insertProductWithItem($idItem,$idClient,$idProduct){
-        print_r($idItem.$idClient);
+        
         $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_ProductWithItem` (`idItem`, `idProductInCart`,`idProduct`)VALUES("'.$idItem.'","'.$idClient.'","'.$idProduct.'");');
         $consulta->execute();                       
         $consulta->CloseCursor();
-        print_r("inserto");
+       
+    }
+
+    public function  insertProducSold($idClient,$idProduct,$details,$quantity,$discount,$totalAmount){
+       
+        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_soldProducts` (`idProduct`, `idShoppingCart`,`details`,`quantity`, `discount`,`totalAmount`)
+        VALUES("'.$idProduct.'","'.$idClient.'","'.$details.'","'.$quantity.'","'.$discount.'","'.$totalAmount.'");');
+        $consulta->execute();                       
+        $consulta->CloseCursor();
+        
+    }
+
+    public function getSoldProduct($idProduct,$idShoppingCart){
+        
+        $consulta = $this->db->prepare('SELECT * FROM `UCRgrupo2`.`g4_soldProducts` where idProduct = "'.$idProduct.'" and idShoppingCart ="'.$idShoppingCart.'";');
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+       
+        $consulta->CloseCursor();
+        return $resultado;
+    }
+    
+    public function getProductWithItem($idProduct,$idShoppingCart){
+        
+        $consulta = $this->db->prepare("CALL sp_getService('$idShoppingCart','$idProduct')");
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        $consulta->CloseCursor();
+        return $resultado;
     }
 }//
+

@@ -1,15 +1,10 @@
-
-
-
-<div class="modal fade" id="ServiceModal" tabindex="-1" aria-labelledby="ServiceModalLabel" aria-hidden="false">
+<div class="modal fade" id="InvoiceModal" tabindex="-1" aria-labelledby="InvoiceModalLabel" aria-hidden="false">
     <div class="modal-dialog">
-        <?php 
-         foreach ($vars['filas'][1]['products'] as $product) {
-        ?>
-        <form action="?controlador=ProductClient&accion=insertProduct" method="POST">
+       
+       
             <div class="modal-content">
                 <div class="modal-header headerModal">
-                    <h5 class="modal-title" id="ServiceModalLabel">Agregar extras</h5>
+                    <h5 class="modal-title" id="InvoiceModalLabel">Agregar extras</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -17,12 +12,7 @@
 
                 <div class="modal-body">
 
-                <div>
-                <input type="hidden" name="idProduct"  value="<?php echo $product[0] ?>">
-                <input type="hidden" name="price"  value="<?php echo $product[2] ?>">
-                <input type="hidden" name="details"  value="<?php echo $product[3] ?>">
-                <input type="hidden" name="idClient" value="<?php echo $_SESSION["inSession"]["id"] ?>">
-                </div>
+                
                 
                 <label for="">Cantidad</label>    
                 <div>
@@ -58,8 +48,8 @@
                     <button id="btnInsert" type="submit" class="btn btn-secondary">Agregar</button>
                 </div>
             </div>
-        </form>
-        <?php } ?>
+       
+       
     </div>
 </div>
 </div>

@@ -10,9 +10,9 @@ class Moldedura extends ProductDecorator{
     public function insertsProductsWithItem(){
 
         $filter = "";
-        print_r("valor de dato=".$this->data['Moldedura']);
+       
         if (isset($this->data['Moldedura']) && !empty($this->data['Moldedura']) && !is_null($this->data['Moldedura'])) {
-            $filter ='Moldedura';
+            $filter =' Moldedura';
            
             
             $this->getModel()->insertProductWithItem($this->data['Moldedura'],$this->data['idClient'],$this->data['idProduct']);

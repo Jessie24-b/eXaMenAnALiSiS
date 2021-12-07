@@ -56,12 +56,29 @@ class ProductClientController {
         require 'designPatterns\Decorador\Cepillado.php';
         require 'designPatterns\Decorador\Tablilla.php';
         require 'designPatterns\Decorador\Moldedura.php';
-        
+       
+
         $productWithItem = new SoldProductsWithItem($_POST);
         $cepillado = new cepillado($productWithItem);
         $tablilla = new Tablilla($cepillado);
         $Moldedura = new Moldedura($tablilla);
-        print_r($Moldedura->insertsProductsWithItem());
+       
+        $_SESSION["inSession"]['activarModal'] = "invoice";
+           
+        $data2["product"] = array(
+            $_POST["details"],
+            $_POST["quantity"],
+            $_POST["price"]
+        );
+        $data3["service"] = preg_split("/[\s,]+/", $Moldedura->insertsProductsWithItem());
+        $totalData['filas'] = array(
+           
+            $data2,
+            $data3
+        );
+
+
+        $this->view->show("viewInvoice.php",$totalData);
         
     }//fin de insertProduct
 

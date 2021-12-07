@@ -13,7 +13,7 @@ class cepillado extends ProductDecorator{
 
         $filter = "";
         if (isset($this->data['Cepillado']) && !empty($this->data['Cepillado']) && !is_null($this->data['Cepillado'])) {
-            $filter ='Cepillado';
+            $filter =' Cepillado';
             
                  
                 $this->getModel()->insertProductWithItem($this->data['Cepillado'],$this->data['idClient'],$this->data['idProduct']);

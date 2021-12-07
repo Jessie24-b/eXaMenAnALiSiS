@@ -40,7 +40,7 @@ require_once 'public/boostrapJS.php';
                         <td class="text-center"><?php echo $product[3] ?></td>
                         <td class="text-center"><?php echo $product[4] ?></td>
                         <td>
-                        <a href="?controlador=ProductClient&accion=addProductInCart&codigo=<?= $product[0] ?>"  class="btn btn-secondary"> Reservacion</a></td>
+                        <a href="?controlador=ProductClient&accion=addProductInCart&codigo=<?= $product[0] ?>"  class="btn btn-secondary"> Agregar al carrito</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
