@@ -18,8 +18,6 @@ class ProductObserver extends Notify{
         foreach ($list as $client) {
             $cliente = new Client($client['user'],$client['name'],$client["lastName"],0);
             $this->attach($cliente);
-        }
-      
-        
+        }        
     }
 }

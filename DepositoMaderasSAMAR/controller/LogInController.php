@@ -73,17 +73,48 @@ class LogInController {
         $this->view->show("createNewAccountView.php", null);  
     }  
     
+    
     public function showCreateNewEmployeeUserView(){
-        $this->view->show("createNewEmployeeUserView.php", null);  
+        
+        include_once 'designPatterns/Builder.php';
+        
+        //Código para crear con views con Builder
+        $pageBuilder = new HTMLPageBuilder();
+        $pageDirector = new HTMLPageDirector($pageBuilder);
+        $pageDirector->buildPage("2");
+        $page = $pageDirector->getPage();
+        echo $page->showPage();
+        
+        //$this->view->show("createNewEmployeeUserView.php", null);  
     }  
     
     
     public function showCreateNewClientUserView(){
-        $this->view->show("createNewClientUserView.php", null);  
+        
+        include_once 'designPatterns/Builder.php';
+        
+        //Código para crear con views con Builder
+        $pageBuilder = new HTMLPageBuilder();
+        $pageDirector = new HTMLPageDirector($pageBuilder);
+        $pageDirector->buildPage("1");
+        $page = $pageDirector->getPage();
+        echo $page->showPage();
+        
+//        $this->view->show("createNewClientUserView.php", null);  
     }  
     
     public function showCreateNewSuplierUserView(){
-        $this->view->show("createNewSuplierUserView.php", null);  
+        
+        include_once 'designPatterns/Builder.php';
+        
+        //Código para crear con views con Builder
+        $pageBuilder = new HTMLPageBuilder();
+        $pageDirector = new HTMLPageDirector($pageBuilder);
+        $pageDirector->buildPage("3");
+        $page = $pageDirector->getPage();
+        echo $page->showPage();
+
+        //$this->view->show("createNewSuplierUserView.php", null);  
     }   
     
     //Metodo para crear nuevo usuario del sitio web. OJO: No borrar ni modificar, acá se usa el FACTORY METHOD y el ABSTRACT FACTORY
