@@ -13,13 +13,16 @@ public function showShoppingCartView(){
      require 'model/ShoppingCartModel.php';
      //Instancia del controlador
      $shoppingCart = new ShoppingCartModel();  
+    
      
      
      //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
      $data['productList'] = $shoppingCart->getProductList();
-     
-
-    $this->view->show("shoppingCartView.php", $data);  
+     $totalData["row"] = array(      
+        $data   
+    );
+   
+    $this->view->show("shoppingCartView.php", $totalData);  
 }//showAddEmployeeView
 
 
@@ -49,7 +52,7 @@ public function showDetailsProduct(){
         $productComposite->addProduct(new simpleProduct($services[3],$data[0]["details"],
          $data[0]["quantity"],0,$services[1],$services[0]));
     }
-    $productComposite->setTotalAmount($productComposite->getTotalAmount()+$productComposite->getPrice());
+   // $productComposite->setTotalAmount($productComposite->getTotalAmount()+$productComposite->getPrice());
     
     /*
     print_r($productComposite->getIdProduct());
@@ -64,8 +67,16 @@ public function showDetailsProduct(){
     
     $_SESSION["inSession"]['activarModal'] = "Si";
    
-    
-    $this->view->show("shoppingCartView.php", $data3);  
+    $totalData["row"] = array(
+        $data3,
+        $productComposite
+       
+    );
+
+    print_r($totalData["row"][1]);
+   // print_r($productComposite->getTotalAmount());
+    //print_r($productComposite->getArray()[0]->getService());
+    $this->view->show("shoppingCartView.php", $totalData);  
 }
 
 }
