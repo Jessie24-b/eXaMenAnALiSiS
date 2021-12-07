@@ -12,7 +12,7 @@ class Tablilla extends ProductDecorator{
         $filter = ""; 
         
         if (isset($this->data['Tablilla']) && !empty($this->data['Tablilla']) && !is_null($this->data['Tablilla'])) {
-            $filter ='Tablilla';
+            $filter =' Tablilla';
             
             $this->getModel()->insertProductWithItem($this->data['Tablilla'],$this->data['idClient'],$this->data['idProduct']);
             

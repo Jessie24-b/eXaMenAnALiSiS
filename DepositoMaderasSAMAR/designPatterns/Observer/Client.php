@@ -17,7 +17,7 @@ class Client implements IObserver{
     }//Fin constructor
 
     public function update(Client $cliente,$product){
-        $product->addClientNotify($cliente->userName);
+       // $product->addClientNotify($cliente->userName);
         
     }
 }

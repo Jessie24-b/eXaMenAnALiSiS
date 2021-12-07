@@ -1,12 +1,26 @@
 <?php
 include_once 'public/headerClient.php';
+include_once 'view\viewInvoice.php';
+require_once 'public/boostrapJS.php';
 ?>
+
+<?php if (isset($_SESSION["inSession"]['activarModal'] ) && $_SESSION["inSession"]['activarModal']  == 'Si') :
+    ?>
+    <div data-bs-toggle="modal" data-bs-target="#InvoiceModal"></div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#InvoiceModal").modal("show");
+        });
+    </script>
+<?php endif; ?>
 
 <div class="card rounded-0">
     <div class="card-header">
         <h3 class="mb-0 text-center">Productos en carrito</h3>
     </div>
     <div class="card-body">
+
+    
 
         <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
             <thead>
@@ -15,7 +29,6 @@ include_once 'public/headerClient.php';
                     <th>Cantidad</th>
                     <th>Descuento</th>
                     <th>Monto total</th>
-                    <th>Servicios</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -29,9 +42,7 @@ include_once 'public/headerClient.php';
                         <td class="text-center"><?php echo $product[4] ?></td>
                         <td class="text-center"><?php echo $product[5] ?></td>
                         <td>
-                        <a class="btn badge-success" href="">agregar</a>
-                        </td>
-                        <td>
+                            <a class="btn btn-success" id="codigo" href="?controlador=ShoppingCart&accion=showDetailsProduct&codigo=<?= $product[0] ?>">Detalles</a>
                             <a class="btn btn-info" href="">Editar</a>
                             <a class="btn btn-danger" href="">Eliminar</a>
                         </td>
