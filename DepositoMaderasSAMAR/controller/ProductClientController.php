@@ -24,7 +24,7 @@ class ProductClientController {
         $totalData['filas'] = array(
             $data
         );
-        //print_r($totalData['filas'][0]['productsList']);
+        
         $this->view->show("productoClientView.php", $totalData);  
     }//showInventoryView
 
@@ -63,22 +63,17 @@ class ProductClientController {
         $tablilla = new Tablilla($cepillado);
         $Moldedura = new Moldedura($tablilla);
        
-        $_SESSION["inSession"]['activarModal'] = "invoice";
-           
-        $data2["product"] = array(
-            $_POST["details"],
-            $_POST["quantity"],
-            $_POST["price"]
-        );
-        $data3["service"] = preg_split("/[\s,]+/", $Moldedura->insertsProductsWithItem());
-        $totalData['filas'] = array(
-           
-            $data2,
-            $data3
-        );
+      
+        $result["service"] = preg_split("/[\s,]+/", $Moldedura->insertsProductsWithItem());
+        
+        
+         //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
+         $data['productsList'] = $productWithItem->getModel()->getProducts();
+         $totalData['filas'] = array(
+             $data
+         );
 
-
-        $this->view->show("viewInvoice.php",$totalData);
+         $this->view->show("productoClientView.php", $totalData); 
         
     }//fin de insertProduct
 

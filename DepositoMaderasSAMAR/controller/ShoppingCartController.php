@@ -52,18 +52,7 @@ public function showDetailsProduct(){
         $productComposite->addProduct(new simpleProduct($services[3],$data[0]["details"],
          $data[0]["quantity"],0,$services[1],$services[0]));
     }
-   // $productComposite->setTotalAmount($productComposite->getTotalAmount()+$productComposite->getPrice());
-    
-    /*
-    print_r($productComposite->getIdProduct());
-    echo nl2br("\n");
-    print_r($productComposite->getDetails());
-    echo nl2br("\n");
-    print_r($productComposite->getQuantity());
-    echo nl2br("\n");
-    print_r($productComposite->getTotalAmount());
-*/
-
+  
     
     $_SESSION["inSession"]['activarModal'] = "Si";
    
@@ -73,9 +62,7 @@ public function showDetailsProduct(){
        
     );
 
-    print_r($totalData["row"][1]);
-   // print_r($productComposite->getTotalAmount());
-    //print_r($productComposite->getArray()[0]->getService());
+   
     $this->view->show("shoppingCartView.php", $totalData);  
 }
 

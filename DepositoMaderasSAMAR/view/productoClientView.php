@@ -1,11 +1,13 @@
 <?php
 include_once 'public/headerProductClient.php';
-include_once 'view/serviceModalViewClient.php';
+
 require_once 'public/boostrapJS.php';
 ?>
 
 <?php if (isset($_SESSION["inSession"]['activarModal'] ) && $_SESSION["inSession"]['activarModal']  == 'Si') :
-    ?>
+    include_once 'view/serviceModalViewClient.php';
+  $_SESSION["inSession"]['activarModal']  = 'No'
+   ?>
     <div data-bs-toggle="modal" data-bs-target="#ServiceModal"></div>
     <script type="text/javascript">
         $(document).ready(function() {

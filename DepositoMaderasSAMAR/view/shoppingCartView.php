@@ -50,6 +50,7 @@ require_once 'public/boostrapJS.php';
 
 <?php if (isset($_SESSION["inSession"]['activarModal'] ) && $_SESSION["inSession"]['activarModal']  == 'Si') :
       include_once 'view\viewInvoice.php';
+      $_SESSION["inSession"]['activarModal']  == 'No'
    ?>
     <div data-bs-toggle="modal" data-bs-target="#InvoiceModal"></div>
     <script type="text/javascript">

@@ -5,7 +5,7 @@
             <div class="modal-content">
                 <div class="modal-header headerModal">
                     <h5 class="modal-title" id="InvoiceModalLabel">Detalles del pedido</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
 
                    
@@ -38,9 +38,7 @@
 
                    
                 </div>
-                <div class="modal-footer headerModal">
-                    <button id="btnInsert" type="submit" class="btn btn-secondary">Agregar</button>
-                </div>
+                
             </div>
              
             

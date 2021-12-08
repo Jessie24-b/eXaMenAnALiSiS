@@ -31,7 +31,7 @@ class ShoppingCartModel {
         $consulta->CloseCursor();
     } //Fin updateClient
     
-    //Función para listar los clientes disponibles en la base de datos
+    //Función para listar los productos vendidos en la base de datos
     public function getProductList( ){
         $consulta = $this->db->prepare('SELECT * FROM g4_soldProducts;');
         $consulta->execute();
@@ -39,9 +39,22 @@ class ShoppingCartModel {
         $consulta->CloseCursor();
         return $resultado;
     } //Fin getClientList
+
+    //Función para listar los productos disponibles en la base de datos
+    public function getProducts( ){
+       
+        $consulta = $this->db->prepare('SELECT * FROM g4_Product;');
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        $consulta->CloseCursor();
+        
+        return $resultado;
+    } //Fin getProductsList
       
     public function  insertProductWithItem($idItem,$idClient,$idProduct){
-        
+       
+        print_r($idItem.$idClient.$idProduct);
+        print_r("ahora a insertar");
         $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_ProductWithItem` (`idItem`, `idProductInCart`,`idProduct`)VALUES("'.$idItem.'","'.$idClient.'","'.$idProduct.'");');
         $consulta->execute();                       
         $consulta->CloseCursor();
