@@ -39,5 +39,4 @@ class Employee implements WorkerIntern {
 
         return $password;
     }
-
 }

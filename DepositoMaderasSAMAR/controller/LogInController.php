@@ -73,7 +73,7 @@ class LogInController {
         $this->view->show("createNewAccountView.php", null);  
     }  
     
-    
+   ////////////////////////BUILDER///////////////////////////////// 
     public function showCreateNewEmployeeUserView(){
         
         include_once 'designPatterns/Builder.php';
@@ -117,6 +117,10 @@ class LogInController {
         //$this->view->show("createNewSuplierUserView.php", null);  
     }   
     
+       ////////////////////////BUILDER///////////////////////////////// 
+    
+    
+    ///////////////////////////////////////Factory Method//////////////////////////////
     //Metodo para crear nuevo usuario del sitio web. OJO: No borrar ni modificar, acá se usa el FACTORY METHOD y el ABSTRACT FACTORY
     public function createNewUser(){
         
