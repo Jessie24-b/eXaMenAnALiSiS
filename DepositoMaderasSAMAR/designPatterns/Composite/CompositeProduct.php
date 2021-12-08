@@ -3,7 +3,7 @@
 require_once('designPatterns\Composite\AbstracProduct.php');
 class CompositeProduct extends AbstracProduct{ 
 
-public  $list = array();
+    private  $list = array();
 
 
     public function __construct($idProduct,$details,$quantity,$totalAmount)
@@ -29,6 +29,10 @@ public  $list = array();
 
     public function removeProduct(){
         
+    }
+
+    public function getArray(){
+        return $this->list;
     }
 
 }

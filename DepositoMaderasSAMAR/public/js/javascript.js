@@ -19,9 +19,7 @@ function addProductCart(productId, cuantity) {
 }//Fin addProductCart
 
 //Función Datatable
-$(document).ready(function () {
- //   $('#example').DataTable();
-});
+
 //Función datatable
 
 

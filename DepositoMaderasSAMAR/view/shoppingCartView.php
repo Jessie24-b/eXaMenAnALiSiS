@@ -1,18 +1,11 @@
 <?php
 include_once 'public/headerClient.php';
-include_once 'view\viewInvoice.php';
+
 require_once 'public/boostrapJS.php';
+
 ?>
 
-<?php if (isset($_SESSION["inSession"]['activarModal'] ) && $_SESSION["inSession"]['activarModal']  == 'Si') :
-    ?>
-    <div data-bs-toggle="modal" data-bs-target="#InvoiceModal"></div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#InvoiceModal").modal("show");
-        });
-    </script>
-<?php endif; ?>
+
 
 <div class="card rounded-0">
     <div class="card-header">
@@ -34,7 +27,7 @@ require_once 'public/boostrapJS.php';
             </thead>
             <tbody>
                 <?php
-                foreach ($vars['productList'] as $product) {
+                foreach ($vars["row"][0]['productList'] as $product) {
                     ?>
                     <tr>
                         <td class="text-center"><?php echo $product[2] ?></td>
@@ -54,6 +47,18 @@ require_once 'public/boostrapJS.php';
     </div>
     <!--/card-block-->
 </div>
+
+<?php if (isset($_SESSION["inSession"]['activarModal'] ) && $_SESSION["inSession"]['activarModal']  == 'Si') :
+      include_once 'view\viewInvoice.php';
+   ?>
+    <div data-bs-toggle="modal" data-bs-target="#InvoiceModal"></div>
+    <script type="text/javascript">
+        
+        $(document).ready(function() {
+            $("#InvoiceModal").modal("show");
+        });
+    </script>
+<?php endif; ?>
 
 <!--/No borrar -->
 </div>
