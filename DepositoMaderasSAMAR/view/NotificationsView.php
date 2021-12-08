@@ -22,10 +22,10 @@ include_once 'public/headerAdmin.php';
                 foreach ($vars['clientsList'] as $client) {
                     ?>
                     <tr>
-                        <td class="text-center"><?php echo $client[1] ?> <?php echo $client[2] ?></td>
+                        <td class="text-center"><?php echo $client[0] ?> <?php echo $client[2] ?></td>
+                        <td class="text-center"><?php echo $client[1] ?></td>
+                        <td class="text-center"><?php echo $client[2] ?></td>
                         <td class="text-center"><?php echo $client[3] ?></td>
-                        <td class="text-center"><?php echo $client[4] ?></td>
-                        <td class="text-center"><?php echo $client[5] ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

@@ -56,7 +56,6 @@ class LogInController {
     }//showSupliersAdminView
     
     public function showClientsAdminView(){
-       
         $this->view->show("clientsAdminView.php",null); 
     }//showClientsAdminView
     
@@ -64,9 +63,24 @@ class LogInController {
         $this->view->show("servicesAdminView.php", null);  
     }//showServicesAdminView
 
-    public function showObserverAdminView(){
-        $this->view->show("NotificationsView.php", null);  
-    }//showServicesAdminView
+//Método encargado de mostrar la view para ver las notificaciones
+public function showObserverAdminView(){ 
+    //Using del modelo
+    require 'model\InventoryAdminModel.php';
+    //Instancia del controlador
+    $client = new InventoryAdminModel();   
+    
+    //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
+    $data['clientsList'] = $client->getClientsListObserver();       
+    
+    $this->view->show("NotificationsView.php", $data);  
+}//showObserverAdminView
+
+public function showMediatorClitView(){ 
+       
+    $this->view->show("MessageView.php", null);
+  
+}//showObserverAdminView
      
     //showshowCreateNewUserView
     public function showCreateNewUserView(){

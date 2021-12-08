@@ -115,5 +115,25 @@ class ClientAdminController {
         
         $this->view->show("clientUpdateView.php", $data);  
     }//updateClient
+
+    public function addClientMediator(){   
+         require 'designPatterns\Mediator\Mediator.php';
+         $mediator = new Mediator();
+         $mediator->Send();
+    }//addEmployee
+
+     //Método encargado de mostrar la view para ver el client
+     public function showClientMediatorView(){ 
+         //$mediator->Obtain();
+         //Using del modelo
+         require 'model/ClientAdminModel.php';
+         //Instancia del controlador
+         $client = new ClientAdminModel();   
+         
+         //Se pone cualquier nombre en el data debido a que es el identificador para poderlo jalar de otro lado
+         $data['mediatorList'] = $client->getClientsListMediator();       
+         
+         $this->view->show("employeMediatorView.php", $data);  
+    }//showClientView
     
 }//CleintAdminController
