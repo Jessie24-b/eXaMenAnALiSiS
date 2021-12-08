@@ -47,6 +47,21 @@ class ClientAdminModel {
         $consulta->CloseCursor();
         return $resultado;
     } //Fin getClientList
+
+    public function addClientMediatorB($name,$message){
+        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_message` (`clientName`,`details`)VALUES("'.$name.'","'.$message.'");');
+        $consulta->execute();
+        $consulta->CloseCursor();
+        
+    } //Fin addClientMediator
+
+    public function getClientsListMediator( ){
+        $consulta = $this->db->prepare('SELECT * FROM g4_message;');
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        $consulta->CloseCursor();
+        return $resultado;
+    } //Fin getClientListMediator
                
 }//Fin Clase ClientAdminModel
 

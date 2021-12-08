@@ -28,6 +28,11 @@ include_once 'public/headerAdmin.php';
         <div style="text-align: center">
             <a type="submit" style="width:210px" class="btn btn-danger btn-lg" id="btnDeleteProduct" href="?controlador=EmployeeAdmin&accion=showDeleteEmployeeView">Eliminar Empleados</a>
         </div>
+        <br/>
+
+        <div style="text-align: center">
+        <a style="width:210px; background-color:purple; border-color:purple; color:white" class="btn btn-success btn-lg" id="btnSeeProducts" href="?controlador=ClientAdmin&accion=showClientMediatorView">Ver Mensajes</a>
+        </div>
     </div>
 </div>
 <!--/card-block-->

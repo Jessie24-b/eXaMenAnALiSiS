@@ -65,9 +65,17 @@ class InventoryAdminModel {
         return $resultado;
     } //Fin getSupliersList
          
-    
-    public function getClientsListObserver( ){
+    public function getClientsList( ){
         $consulta = $this->db->prepare('SELECT * FROM g4_Client;');
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        $consulta->CloseCursor();
+        return $resultado;
+    } //Fin getClientList
+     
+
+    public function getClientsListObserver( ){
+        $consulta = $this->db->prepare('SELECT * FROM g4_clientsNotify;');
         $consulta->execute();
         $resultado=$consulta->fetchAll();
         $consulta->CloseCursor();
@@ -77,10 +85,12 @@ class InventoryAdminModel {
 
     public function addClientNotify($userName,$name,$lastName,$notify){
        
-        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_Client` (`userName`,`name`,`lastName`,`notify`)VALUES("'.$userName.'","'.$name.'","'.$lastName.'","'.$notify.'");');
+        $consulta = $this->db->prepare('INSERT INTO `UCRgrupo2`.`g4_clientsNotify` (`userName`,`name`,`lastName`,`notify`)VALUES("'.$userName.'","'.$name.'","'.$lastName.'","'.$notify.'");');
         $consulta->execute();
         $consulta->CloseCursor();
         
     } //Fin addClient
+  
+
 }//Fin Clase InventoryAdminModel
 
