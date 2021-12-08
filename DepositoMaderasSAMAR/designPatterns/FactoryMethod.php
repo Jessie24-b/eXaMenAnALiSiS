@@ -5,6 +5,13 @@
 
 //BASICAMENTE EL PATRON DE DISEÑO FUE APLICADO PARA FACILITAR EL PROCESO DE CREADO DE USUARIOS DE LA PLATAFORMA, YA QUE 
 //PUEDEN SER 3 (CLIENTES, EMPLEADOS Y PROVEEDORES), ASÍ REDUCIMOS CLASES Y CODIGO SOLO EN UNA GRACIAS AL FACTORY METHOD
+
+//define una interfaz para crear un objeto, pero deja a las subclases decidir que clase instanciar. Este patrón
+//permite a una clase ceder la instanciación a las subclases.
+
+//Tenemos una clase UserFactoryMethod con las subclases Employee, Client y Suplier. En función de los parametros que le pasemos a la 
+//variable estática UserFactoryMethod::create, se creará una instancia de Employee, Client o Suplier.
+
 class UserFactoryMethod
 {
     //Variables globales de clase
