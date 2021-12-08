@@ -4,7 +4,7 @@ require 'designPatterns\Mediator\IMediator.php';
 class Mediator implements IMediator{
 
     public function __construct() {
-
+            $this->view = new View();
     }//Constructor
     
     public function Send()
